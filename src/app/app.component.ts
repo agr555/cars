@@ -1,0 +1,87 @@
+//import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from "@angular/forms";
+import { AppService } from "./app.service";
+import { getXHRResponse } from "rxjs/internal/ajax/getXHRResponse";
+import { environment } from 'src/environments/environment';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  priceForm = this.fb.group({
+    name: ['', Validators.required],
+    phone: ['', Validators.required],
+    service: 'cars',
+    product: ['', Validators.required]
+  })
+  carsData: any;
+  burgerMenuOpen = false;
+  serverStaticPath = environment.serverStaticPath;
+
+  constructor(private fb: FormBuilder, private appService: AppService) {
+  }
+
+  ngOnInit() {
+    this.appService.getData().subscribe(carsData => this.carsData = carsData);
+
+  }
+  goScroll(target: HTMLElement, car?: any) {
+    target.scrollIntoView({ behavior: "smooth" });
+    if (car) {
+      this.priceForm.patchValue({ product: car.name });
+    }
+  }
+  trans: any;
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e: MouseEvent) {
+    this.trans = { transform: 'translate3d(' + ((e.clientX * 0.5) / 8) + 'px,' + ((e.clientY * 0.3) / 8) + 'px,0px)' };
+  }
+
+  bgPos: any;
+  @HostListener('document:scroll', ['$event'])
+  onScroll() {
+    this.bgPos = { backgroundPositionX: '0' + (0.3 * window.scrollY) + 'px' };
+  }
+
+
+  onSubmit() {
+    if (this.priceForm.valid) {
+
+      this.appService.sendQuery(this.priceForm.value)
+        .subscribe(
+          {
+            next: (response: any) => {
+              alert(response.message);
+            },
+            error: (response) => {
+              alert(response.error.message);
+            }
+          }
+        );
+      this.priceForm.reset();
+    }
+  }
+
+  /*small-menu*/
+  public scrollTo(target: HTMLElement): void {
+    target.scrollIntoView({ behavior: "smooth" });
+    this.burgerMenuOpen = false;
+
+  }
+  onScrollToAnchor(how: string) {
+    // this.scroller.scrollToAnchor(how);
+    this.burgerMenuOpen = false;
+  }
+
+  burgerMenuClose() {
+    this.burgerMenuOpen = false;
+
+  }
+  toggleBurgerMenuOpen() {
+    this.burgerMenuOpen = !this.burgerMenuOpen;
+    console.log('1')
+  }
+}
