@@ -8,7 +8,8 @@ export const environment = {
   // serverStaticPath: 'http://localhost:5000/images/cars/',
   // api: "http://localhost:5000/api/",
   // serverStaticPath: 'http://localhost:5000/images/cars/',
-  api: "https://weather-backend-xi-five.vercel.app/api/",
+  // api: "https://weather-backend-xi-five.vercel.app/api/",
+  api: "https://backend-answer.vercel.app/api/",
   serverStaticPath: 'https://weather-backend-xi-five.vercel.app/public/images/cars/',
   delivery: 10
 };

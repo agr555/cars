@@ -11,7 +11,7 @@ export class AppService {
   }
 
   sendQuery(data: any) {
-    return this.http.post('https://testologia.ru/intensive-price', data);
+    return this.http.post('https://testologia.com/intensive-price', data);
     // return this.http.post(environment.api + 'requests', data);
   }
 
@@ -19,6 +19,7 @@ export class AppService {
     // return this.http.get('https://testologia.ru/intensive-data');
     // return this.http.get('http://localhost:5000/api/cars');
     return this.http.get(environment.api + 'cars');
+ 
   }
 }
 /*

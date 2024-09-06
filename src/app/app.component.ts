@@ -17,7 +17,7 @@ export class AppComponent {
     service: 'cars',
     product: ['', Validators.required]
   })
-  carsData: any;
+  carsData: any[] = [];
   burgerMenuOpen = false;
   serverStaticPath = environment.serverStaticPath;
 
@@ -25,8 +25,21 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.appService.getData().subscribe(carsData => this.carsData = carsData);
-
+    this.appService.getData()
+    .subscribe(
+      (carsData:any) => {
+        this.carsData = carsData.cars
+        console.log(this.carsData)
+        return this.carsData
+    })
+        // .subscribe((response: any) => {
+        //   this.carsData = response.cars//.$values;
+        //   console.log(response.cars)
+        //   console.log(this.carsData)
+        //   return response.cars
+        // }, error => {
+        //   console.log(error);
+        // });
   }
   goScroll(target: HTMLElement, car?: any) {
     target.scrollIntoView({ behavior: "smooth" });
