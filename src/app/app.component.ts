@@ -44,7 +44,7 @@ export class AppComponent {
   goScroll(target: HTMLElement, car?: any) {
     target.scrollIntoView({ behavior: "smooth" });
     if (car) {
-      this.priceForm.patchValue({ product: car.name, service: 'car1' });
+      this.priceForm.patchValue({ product: car.name, service: 'cars' });
     }
   }
   trans: any;
@@ -74,7 +74,7 @@ export class AppComponent {
             }
           }
         );
-      this.priceForm.reset();
+      this.priceForm.reset({service: 'cars_any'});
     }
   }
 
