@@ -14,7 +14,7 @@ export class AppComponent {
   priceForm = this.fb.group({
     name: ['', Validators.required],
     phone: ['', Validators.required],
-    service: 'cars',
+    service: ['car'],
     product: ['', Validators.required]
   })
   carsData: any[] = [];
@@ -44,7 +44,7 @@ export class AppComponent {
   goScroll(target: HTMLElement, car?: any) {
     target.scrollIntoView({ behavior: "smooth" });
     if (car) {
-      this.priceForm.patchValue({ product: car.name, service: 'cars' });
+      this.priceForm.patchValue({ product: car.name, service: 'car1' });
     }
   }
   trans: any;
