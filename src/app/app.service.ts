@@ -11,7 +11,9 @@ export class AppService {
   }
 
   sendQuery(data: any) {
-    return this.http.post('https://testologia.com/intensive-price', data);
+    // return this.http.post('https://testologia.com/intensive-price', data);
+    console.log(data)
+    return this.http.post(environment.api + 'choice', data);
     // return this.http.post(environment.api + 'requests', data);
   }
 
