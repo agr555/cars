@@ -19,7 +19,7 @@ export class AppComponent {
   })
   carsData: any[] = [];
   burgerMenuOpen = false;
-  serverStaticPath = environment.serverStaticPath;
+  // serverStaticPath = environment.serverStaticPath;
 
   constructor(private fb: FormBuilder, private appService: AppService) {
   }
@@ -44,7 +44,7 @@ export class AppComponent {
   goScroll(target: HTMLElement, car?: any) {
     target.scrollIntoView({ behavior: "smooth" });
     if (car) {
-      this.priceForm.patchValue({ product: car.name });
+      this.priceForm.patchValue({ product: car.name, service: 'cars' });
     }
   }
   trans: any;
