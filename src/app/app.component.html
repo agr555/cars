@@ -41,13 +41,13 @@
 
       <ul>
         <li class="menu-item">
-          <a routerLink="/" (click)="burgerMenuClose()">Главная</a>
+          <a routerLink="/" (click)="burgerMenuClose()">Home</a>
         </li>
         <li class="menu-item">
-          <a href="#cars" (click)="burgerMenuClose()">Автомобили</a>
+          <a href="#cars" (click)="burgerMenuClose()">Cars</a>
         </li>
         <li class="menu-item">
-          <a href="#price" (click)="burgerMenuClose()">Бронирование авто</a>
+          <a href="#price" (click)="burgerMenuClose()">Car Reservations</a>
         </li>
       </ul>
     </nav>
@@ -56,14 +56,11 @@
 <section class="main" [ngStyle]="bgPos">
   <div class="container">
     <div class="main-info ">
-      <h1 class="main-title">Аренда премиальных автомобилей</h1>
-      <div class="main-text">В нашем клубе имеется солидная коллекция спортивных автомобилей — от достаточно
-        распространенных серийных машин до настоящего гоночного эксклюзива. Воспользуйтесь уникальной
-        возможностью побывать за рулем настоящей легенды и узнать, на что она способна за пределами гоночной
-        трассы!
+      <h1 class="main-title">Car rental</h1>
+      <div class="main-text">Our club has a solid collection of sports cars - from fairly common production cars to real racing exclusives. Take advantage of a unique opportunity to drive a true legend and find out what it can do beyond the race track!
       </div>
       <div class="main-action">
-        <button class="button" id="main-action" (click)="goScroll(cars)">Посмотреть автомобили</button>
+        <button class="button" id="main-action" (click)="goScroll(cars)">View cars</button>
         <img src="../assets/images/background-small.png" alt="car" class="car-image">
 
       </div>
@@ -73,7 +70,7 @@
 
 <section class="car" id="cars" #cars>
   <div class="container">
-    <h2 class="sub-title">Наш автопарк</h2>
+    <h2 class="sub-title">Our fleet</h2>
     <div class="car-items">
       <div class="car-item" *ngFor="let car of carsData, index as i">
         <div class="car-item-image">
@@ -86,22 +83,22 @@
           <div class="car-item-info">
             <div class="car-item-point">
               <img src="assets/images/gear.png" alt="Gear">
-              <div>Привод</div>
+              <div>Gear</div>
               <div>{{car.gear}}</div>
             </div>
             <div class="car-item-point">
               <img src="assets/images/wheel.png" alt="Wheel">
-              <div>Двигатель</div>
+              <div>Engine</div>
               <div>{{car.engine}} л.с.</div>
             </div>
             <div class="car-item-point">
               <img src="assets/images/belt.png" alt="Belt">
-              <div>Кол-во мест</div>
+              <div>Number of seats</div>
               <div>{{car.places}}</div>
             </div>
           </div>
           <div class="car-item-action">
-            <button class="button car-button" (click)="goScroll(price, car)">Забронировать</button>
+            <button class="button car-button" (click)="goScroll(price, car)">Reserve it!</button>
           </div>
         </div>
       </div>
@@ -116,16 +113,16 @@
 
 <section class="price" id="price" #price>
   <div class="container">
-    <h2 class="sub-title">Узнать цену и забронировать</h2>
+    <h2 class="sub-title">Find out the price and book</h2>
     <div class="price-text">
-      Заполните данные, и мы перезвоним вам для уточнения всех деталей бронирования
+      Fill in your details and we will call you back for all booking details
     </div>
     <form action="" class="price-form" [formGroup]="priceForm">
-      <input type="text" class="price-input" id="name" placeholder="Ваше имя" formControlName="name">
-      <input type="text" class="price-input" id="phone" placeholder="Ваш телефон" formControlName="phone">
-      <input type="text" class="price-input" id="car" placeholder="Автомобиль, который вас интересует"
+      <input type="text" class="price-input" id="name" placeholder="Your name" formControlName="name">
+      <input type="text" class="price-input" id="phone" placeholder="Your phone number" formControlName="phone">
+      <input type="text" class="price-input" id="car" placeholder="Car you are interested in"
         formControlName="product">
-      <button class="button" id="price-action" (click)="onSubmit()" [disabled]="!priceForm.valid">Узнать цену</button>
+      <button class="button" id="price-action" (click)="onSubmit()" [disabled]="!priceForm.valid">Find out the price</button>
     </form>
 
     <img src="assets/images/rolls.png" alt="Rolls" class="price-image" [ngStyle]="trans">
@@ -136,7 +133,7 @@
     <div class="logo">
       <img src="assets/images/logo.png" alt="Logo">
     </div>
-    <div class="rigth">Все права защищены</div>
+    <div class="rigth">All rights reserved</div>
   </div>
 </footer>
 <a href="#" id="top" routerLink="/">

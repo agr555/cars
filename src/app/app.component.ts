@@ -91,7 +91,6 @@ export class AppComponent {
 
   burgerMenuClose() {
     this.burgerMenuOpen = false;
-
   }
   toggleBurgerMenuOpen() {
     this.burgerMenuOpen = !this.burgerMenuOpen;
