@@ -56,7 +56,7 @@ export class AppComponent {
   bgPos: any;
   @HostListener('document:scroll', ['$event'])
   onScroll() {
-    this.bgPos = { backgroundPositionX: '0' + (0.3 * window.scrollY) + 'px' };
+    this.bgPos = { backgroundPositionX: '' + (0.4 * window.scrollY) + 'px' };
   }
 
 
@@ -91,6 +91,7 @@ export class AppComponent {
 
   burgerMenuClose() {
     this.burgerMenuOpen = false;
+
   }
   toggleBurgerMenuOpen() {
     this.burgerMenuOpen = !this.burgerMenuOpen;
